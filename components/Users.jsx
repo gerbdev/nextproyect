@@ -1,10 +1,11 @@
-"use client";
 import Link from "next/link";
 
-function Users({ users }) {
+function Users({ users, limit = 4 }) {
+  const limitedUsers = users.slice(0, limit);
+
   return (
     <ul>
-      {users.map((user) => (
+      {limitedUsers.map((user) => (
         <Link href={`/users/${user.id}`} key={user.id}>
           <li
             key={user.id}
